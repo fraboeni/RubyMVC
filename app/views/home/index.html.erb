@@ -1,0 +1,44 @@
+<!--2nd (grey)Navigation bar from Bootsrap Component/#Media-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <form class="navbar-form navbar-left" role="search">
+     <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+     <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+        <a class="navbar-brand" href="#">
+        <img alt="Brand" src="http://www.artversion.com/wp-content/uploads/revslider/sliderpreview_fullscreen/brand_icon1.png" width="20pt">
+
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- User Questions Display -->
+<div class ="container">
+  <% @questions.each do |q| %>
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="<%=q.gravatar%>" width="100pt" alt="userpic">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%=q.email%> asked</h4>
+    <div><%= time_ago_in_words q.created_at %> ago</div>
+    <%=q.body %>
+    <div>
+      <a href="<%= question_path(q) %>" class="btn btn-success btn-xs">View Answeres</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<% end %>
+</div>
+
